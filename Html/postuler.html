@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Postulez facilement aux offres d'emploi et de stage à Djibouti avec Djibouti JOBS">
+  <title>Djibouti JOBS - Postuler à une offre</title>
+  <link rel="stylesheet" href="../Styles/postuler.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <i class="fas fa-user-tie"></i>
+      <span>Djibouti JOBS</span>
+    </div>
+    <nav>
+      <a href="accueil.html">Accueil</a>
+      <a href="offres.html">Offres</a>
+      <a href="postuler.html" class="active">Postuler</a>
+      <a href="apropos.html">À propos</a>
+      <img src="../Images/Drapeau de djibouti.png" alt="Drapeau Djibouti" class="flag">
+    </nav>
+    <div class="mobile-menu-btn">
+      <i class="fas fa-bars"></i>
+    </div>
+  </header>
+
+  <!-- Hero Formulaire -->
+  <section class="hero-postuler">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Postulez à votre <span class="highlight">opportunité idéale</span></h1>
+          <p>Remplissez le formulaire pour postuler aux offres d'emploi et de stage à Djibouti</p>
+          <div class="advantages">
+            <div class="advantage">
+              <i class="fas fa-check-circle"></i>
+              <span>Processus simplifié</span>
+            </div>
+            <div class="advantage">
+              <i class="fas fa-check-circle"></i>
+              <span>Réponse rapide</span>
+            </div>
+            <div class="advantage">
+              <i class="fas fa-check-circle"></i>
+              <span>Accompagnement personnalisé</span>
+            </div>
+          </div>
+        </div>
+        <div class="form-card">
+          <h2>Formulaire de candidature</h2>
+          <form id="applicationForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nom">Nom complet</label>
+                <div class="input-with-icon">
+                  <i class="fas fa-user"></i>
+                  <input type="text" id="nom" placeholder="Votre nom et prénom" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Adresse email</label>
+                <div class="input-with-icon">
+                  <i class="fas fa-envelope"></i>
+                  <input type="email" id="email" placeholder="exemple@email.com" required>
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="telephone">Téléphone</label>
+                <div class="input-with-icon">
+                  <i class="fas fa-phone"></i>
+                  <input type="tel" id="telephone" placeholder="+253 XX XX XX XX" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="poste">Poste souhaité</label>
+                <div class="input-with-icon">
+                  <i class="fas fa-briefcase"></i>
+                  <input type="text" id="poste" placeholder="Ex: Développeur Web" required>
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Lettre de motivation</label>
+              <textarea id="message" placeholder="Présentez-vous et expliquez pourquoi vous êtes le candidat idéal..." rows="4"></textarea>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cv">CV (PDF, max 2MB)</label>
+                <div class="file-upload">
+                  <i class="fas fa-file-upload"></i>
+                  <input type="file" id="cv" accept=".pdf,.doc,.docx" required>
+                  <span class="file-label">Télécharger votre CV</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="lettre">Lettre de motivation (optionnel)</label>
+                <div class="file-upload">
+                  <i class="fas fa-file-upload"></i>
+                  <input type="file" id="lettre" accept=".pdf,.doc,.docx">
+                  <span class="file-label">Télécharger votre lettre</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-group checkbox-group">
+              <input type="checkbox" id="consentement" required>
+              <label for="consentement">J'accepte que mes données soient utilisées pour traiter ma candidature</label>
+            </div>
+            
+            <button type="submit" class="submit-btn">
+              <i class="fas fa-paper-plane"></i>
+              Envoyer ma candidature
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Étapes de candidature -->
+  <section class="application-steps">
+    <div class="container">
+      <h2>Comment postuler en 3 étapes</h2>
+      <div class="steps-container">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Remplissez le formulaire</h3>
+          <p>Complétez toutes les informations demandées avec précision</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Téléchargez vos documents</h3>
+          <p>Ajoutez votre CV et lettre de motivation au format PDF</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Soumettez votre candidature</h3>
+          <p>Nous la transmettrons aux entreprises concernées</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popup confirmation -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <div class="popup-icon">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <h3>Candidature envoyée !</h3>
+      <p>Votre candidature a été transmise avec succès. Nous vous contacterons rapidement.</p>
+      <div class="popup-buttons">
+        <button id="closePopup" class="popup-btn">Fermer</button>
+        <button id="newApplication" class="popup-btn secondary">Nouvelle candidature</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>Djibouti JOBS</h3>
+        <p>La plateforme de référence pour trouver des emplois et stages à Djibouti.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Liens rapides</h4>
+        <ul>
+          <li><a href="accueil.html">Accueil</a></li>
+          <li><a href="offres.html">Offres</a></li>
+          <li><a href="postuler.html">Postuler</a></li>
+          <li><a href="apropos.html">À propos</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Ressources</h4>
+        <ul>
+          <li><a href="conseil-cv.html">Conseils de CV</a></li>
+          <li><a href="preparation-entretien.html">Préparation entretien</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><i class="fas fa-envelope"></i> contact@djiboutijobs.dj</li>
+          <li><i class="fas fa-phone"></i> +253 77 42 53 81</li>
+          <li><i class="fas fa-map-marker-alt"></i> Djibouti Ville, Djibouti</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Djibouti JOBS. Tous droits réservés. @M.A.R</p>
+    </div>
+  </footer>
+
+  <script src="../Js/postuler.js"></script>
+</body>
+</html>

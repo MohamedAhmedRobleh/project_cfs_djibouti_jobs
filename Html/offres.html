@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Découvrez toutes les offres d'emploi et de stage disponibles à Djibouti pour étudiants et jeunes diplômés">
+  <title>Djibouti JOBS - Offres d'emploi et de stage</title>
+  <link rel="stylesheet" href="../Styles/offres.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <i class="fas fa-user-tie"></i>
+      <span>Djibouti JOBS</span>
+    </div>
+    <nav>
+      <a href="accueil.html">Accueil</a>
+      <a href="offres.html" class="active">Offres</a>
+      <a href="postuler.html">Postuler</a>
+      <a href="apropos.html">À propos</a>
+      <img src="../Images/Drapeau de djibouti.png" alt="Drapeau Djibouti" class="flag">
+    </nav>
+    <div class="mobile-menu-btn">
+      <i class="fas fa-bars"></i>
+    </div>
+  </header>
+
+  <!-- Hero / Filter -->
+  <section class="hero-offres">
+    <div class="hero-content">
+      <h1>Trouvez l'opportunité <span class="highlight">idéale</span></h1>
+      <p>Parcourez toutes nos offres d'emploi et de stage à Djibouti</p>
+      
+      <div class="filter-bar">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" id="search" placeholder="Rechercher par titre, entreprise ou compétence...">
+        </div>
+        
+        <div class="filter-selectors">
+          <select id="category">
+            <option value="all">Tous les domaines</option>
+            <option value="informatique">Informatique</option>
+            <option value="marketing">Marketing</option>
+            <option value="finance">Finance</option>
+            <option value="enseignement">Enseignement</option>
+            <option value="sante">Santé</option>
+            <option value="tourisme">Tourisme</option>
+            <option value="commerce">Commerce</option>
+          </select>
+          
+          <select id="type">
+            <option value="all">Type de contrat</option>
+            <option value="emploi">Emploi</option>
+            <option value="stage">Stage</option>
+            <option value="temps-partiel">Temps partiel</option>
+          </select>
+          
+          <select id="experience">
+            <option value="all">Niveau d'expérience</option>
+            <option value="debutant">Débutant</option>
+            <option value="junior">Junior (0-2 ans)</option>
+            <option value="intermediaire">Intermédiaire (2-5 ans)</option>
+          </select>
+        </div>
+        
+        <button id="filterBtn" class="filter-btn"><i class="fas fa-filter"></i> Filtrer</button>
+      </div>
+      
+      <div class="results-info">
+        <span id="resultsCount">0</span> offres correspondant à vos critères
+      </div>
+    </div>
+  </section>
+
+  <!-- Liste des offres -->
+  <section class="offers-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Offres disponibles</h2>
+        <div class="sort-options">
+          <span>Trier par :</span>
+          <select id="sort">
+            <option value="newest">Plus récent</option>
+            <option value="oldest">Plus ancien</option>
+            <option value="title-asc">Titre (A-Z)</option>
+            <option value="title-desc">Titre (Z-A)</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="offers-container" id="offersList">
+        <!-- Cartes dynamiques via JS -->
+      </div>
+      
+      <div class="pagination" id="pagination">
+        <!-- Pagination dynamique -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter">
+    <div class="container">
+      <div class="newsletter-content">
+        <h2>Ne ratez aucune opportunité</h2>
+        <p>Inscrivez-vous à notre newsletter pour recevoir les nouvelles offres directement dans votre boîte mail</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Votre adresse email" required>
+          <button type="submit">S'inscrire <i class="fas fa-arrow-right"></i></button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>Djibouti JOBS</h3>
+        <p>La plateforme de référence pour trouver des emplois et stages à Djibouti.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Liens rapides</h4>
+        <ul>
+          <li><a href="accueil.html">Accueil</a></li>
+          <li><a href="offres.html">Offres</a></li>
+          <li><a href="postuler.html">Postuler</a></li>
+          <li><a href="apropos.html">À propos</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Ressources</h4>
+        <ul>
+          <li><a href="conseil-cv.html">Conseils de CV</a></li>
+          <li><a href="preparation-entretien.html">Préparation entretien</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><i class="fas fa-envelope"></i> contact@djiboutijobs.dj</li>
+          <li><i class="fas fa-phone"></i> +253 77 42 53 81</li>
+          <li><i class="fas fa-map-marker-alt"></i> Djibouti Ville, Djibouti</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Djibouti JOBS. Tous droits réservés. @M.A.R</p>
+    </div>
+  </footer>
+
+  <script src="../Data/data.js"></script>
+  <script src="../Js/offres.js"></script>
+</body>
+</html>

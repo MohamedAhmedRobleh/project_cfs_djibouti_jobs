@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Plateforme de recherche d'emploi et de stage à Djibouti pour étudiants et jeunes diplômés">
+  <title>Djibouti JOBS - Trouvez votre emploi ou stage</title>
+  <link rel="stylesheet" href="../Styles/accueil.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header / Navbar -->
+  <header>
+    <div class="logo">
+      <i class="fas fa-user-tie"></i>
+      <span>Djibouti JOBS</span>
+    </div>
+    <nav>
+      <a href="index.html" class="active">Accueil</a>
+      <a href="offres.html">Offres</a>
+      <a href="postuler.html">Postuler</a>
+      <a href="apropos.html">À propos</a>
+      <img src="../Images/Drapeau de djibouti.png" alt="Drapeau Djibouti" class="flag">
+    </nav>
+    <div class="mobile-menu-btn">
+      <i class="fas fa-bars"></i>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Trouvez votre <span class="highlight">emploi</span> ou <span class="highlight">stage</span> à Djibouti</h1>
+        <p>La plateforme dédiée aux étudiants et jeunes diplômés pour découvrir des opportunités locales adaptées à votre profil</p>
+        <div class="search-bar">
+          <input type="text" id="searchInput" placeholder="Rechercher un emploi, stage, entreprise...">
+          <button id="searchBtn"><i class="fas fa-search"></i> Rechercher</button>
+        </div>
+        <div class="quick-filters">
+          <span>Filtrer par :</span>
+          <button class="filter-btn">Stages</button>
+          <button class="filter-btn">Emplois</button>
+          <button class="filter-btn">Temps partiel</button>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjVmNWY1Ii8+PGNpcmNsZSBjeD0iMjAwIiBjeT0iMTUwIiByPSI4MCIgZmlsbD0iIzAwODZkNiIvPjxwYXRoIGQ9Ik0xNjAgMTMwIEwyNDAgMTMwIEwyNDAgMTcwIEwxNjAgMTcwIFoiIGZpbGw9IiNmZmYiLz48Y2lyY2xlIGN4PSIxODAiIGN5PSIxNTAiIHI9IjEwIiBmaWxsPSIjMDA4NmQ2Ii8+PGNpcmNsZSBjeD0iMjIwIiBjeT0iMTUwIiByPSIxMCIgZmlsbD0iIzAwODNmZiIvPjxwYXRoIGQ9Ik0xNzAgMTkwIEwyMzAgMTkwIiBzdHJva2U9IiMwMDgzZmYiIHN0cm9rZS13aWR0aD0iNCIvPjwvc3ZnPg==" alt="Recherche d'emploi">
+      </div>
+    </div>
+  </section>
+
+  <!-- Statistiques -->
+  <section class="stats">
+    <div class="stats-container">
+      <div class="stat-item">
+        <h3>250+</h3>
+        <p>Offres disponibles</p>
+      </div>
+      <div class="stat-item">
+        <h3>120+</h3>
+        <p>Entreprises partenaires</p>
+      </div>
+      <div class="stat-item">
+        <h3>500+</h3>
+        <p>Étudiants placés</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Offres récentes -->
+  <section class="recent-jobs">
+    <div class="section-header">
+      <h2>Offres récentes</h2>
+      <a href="offres.html" class="view-all">Voir tout <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="jobs-container" id="recentJobs">
+      <!-- Cartes dynamiques via JS -->
+    </div>
+  </section>
+
+  <!-- Comment ça marche -->
+  <section class="how-it-works">
+    <h2>Comment ça marche</h2>
+    <div class="steps-container">
+      <div class="step">
+        <div class="step-icon">1</div>
+        <h3>Créez votre profil</h3>
+        <p>Inscrivez-vous et complétez votre profil en tant qu'étudiant ou récent diplômé</p>
+      </div>
+      <div class="step">
+        <div class="step-icon">2</div>
+        <h3>Explorez les offres</h3>
+        <p>Parcourez les offres d'emploi et de stage adaptées à votre profil</p>
+      </div>
+      <div class="step">
+        <div class="step-icon">3</div>
+        <h3>Postulez facilement</h3>
+        <p>Postulez en quelques clics et suivez l'état de vos candidatures</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>Djibouti JOBS</h3>
+        <p>La plateforme de référence pour trouver des emplois et stages à Djibouti.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Liens rapides</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="offres.html">Offres</a></li>
+          <li><a href="postuler.html">Postuler</a></li>
+          <li><a href="apropos.html">À propos</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Ressources</h4>
+        <ul>
+          <li><a href="conseil-cv.html">Conseils de CV</a></li>
+          <li><a href="preparation-entretien.html">Préparation entretien</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><i class="fas fa-envelope"></i> contact@djiboutijobs.dj</li>
+          <li><i class="fas fa-phone"></i> +253 77 42 53 81</li>
+          <li><i class="fas fa-map-marker-alt"></i> Djibouti Ville, Djibouti</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Djibouti JOBS. Tous droits réservés. @M.A.R</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../Data/data.js"></script>
+  <script src="../Js/accueil.js"></script>
+</body>
+</html>
