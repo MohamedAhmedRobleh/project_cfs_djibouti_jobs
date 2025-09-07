@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Blog Djibouti JOBS - Conseils, actualités et ressources pour votre recherche d'emploi à Djibouti">
+  <title>Djibouti JOBS - Blog</title>
+  <link rel="stylesheet" href="../Styles/blog.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <i class="fas fa-user-tie"></i>
+      <span>Djibouti JOBS</span>
+    </div>
+    <nav>
+      <a href="../index.html">Accueil</a>
+      <a href="offres.html">Offres</a>
+      <a href="postuler.html">Postuler</a>
+      <a href="apropos.html">À propos</a>
+      <img src="../Images/Drapeau de djibouti.png" alt="Drapeau Djibouti" class="flag">
+    </nav>
+    <div class="mobile-menu-btn">
+      <i class="fas fa-bars"></i>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-blog">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Le Blog <span class="highlight">Djibouti JOBS</span></h1>
+          <p>Conseils, actualités et ressources pour booster votre carrière à Djibouti</p>
+          <div class="search-bar">
+            <input type="text" placeholder="Rechercher un article..." id="blog-search">
+            <button><i class="fas fa-search"></i></button>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBF44ctYRbIaqVUdeCtRuBf4r2WmCWlOnPZQ&s" alt="Blog Djibouti JOBS">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Catégories -->
+  <section class="categories-section">
+    <div class="container">
+      <h2>Catégories</h2>
+      <div class="categories-grid">
+        <div class="category-card" data-category="conseils">
+          <i class="fas fa-lightbulb"></i>
+          <h3>Conseils Carrière</h3>
+          <p>Stratégies pour développer votre carrière</p>
+        </div>
+        <div class="category-card" data-category="entretien">
+          <i class="fas fa-handshake"></i>
+          <h3>Entretiens</h3>
+          <p>Préparation et techniques d'entretien</p>
+        </div>
+        <div class="category-card" data-category="cv">
+          <i class="fas fa-file-alt"></i>
+          <h3>CV & Lettres</h3>
+          <p>Rédaction de documents percutants</p>
+        </div>
+        <div class="category-card" data-category="marche">
+          <i class="fas fa-chart-line"></i>
+          <h3>Marché de l'emploi</h3>
+          <p>Tendances et analyses du marché djiboutien</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Articles récents -->
+  <section class="featured-articles">
+    <div class="container">
+      <div class="section-header">
+        <h2>Articles récents</h2>
+        <p>Découvrez nos derniers conseils et actualités</p>
+      </div>
+      
+      <div class="articles-grid" id="articles-grid">
+        <!-- Articles will be loaded dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-content">
+        <div class="newsletter-text">
+          <h2>Restez informé</h2>
+          <p>Inscrivez-vous à notre newsletter pour recevoir nos derniers articles et conseils exclusifs</p>
+        </div>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Votre adresse email" required>
+          <button type="submit">S'inscrire <i class="fas fa-arrow-right"></i></button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Témoignages -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Ils ont réussi grâce à nos conseils</h2>
+        <p>Découvrez les témoignages de ceux qui ont transformé leur carrière</p>
+      </div>
+      
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="quote-icon">
+              <i class="fas fa-quote-left"></i>
+            </div>
+            <p>"Les conseils sur la préparation aux entretiens m'ont vraiment aidé à décrocher mon poste actuel. Je recommande vivement!"</p>
+            <div class="testimonial-author">
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMzAiIGZpbGw9IiNlOWVjZWYiLz48Y2lyY2xlIGN4PSIzMCIgY3k9IjI0IiByPSIxMiIgZmlsbD0iIzZjNzU3ZCIvPjxwYXRoIGQ9Ik0xMiA0OCBDMTIgNDAgMjQgNDAgMzYgNDAgQzQ4IDQwIDYwIDQwIDYwIDQ4IFoiIGZpbGw9IiM2Yzc1N2QiLz48L3N2Zz4=" alt="Auteur du témoignage">
+              <div class="author-info">
+                <h4>Hassan Omar</h4>
+                <p>Développeur Web</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="quote-icon">
+              <i class="fas fa-quote-left"></i>
+            </div>
+            <p>"Grâce aux modèles de CV proposés, j'ai enfin obtenu des entretiens après des mois de recherche infructueuse."</p>
+            <div class="testimonial-author">
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMzAiIGZpbGw9IiNlOWVjZWYiLz48Y2lyY2xlIGN4PSIzMCIgY3k9IjI0IiByPSIxMiIgZmlsbD0iIzZjNzU3ZCIvPjxwYXRoIGQ9Ik0xMiA0OCBDMTIgNDAgMjQgNDAgMzYgNDAgQzQ4IDQwIDYwIDQwIDYwIDQ4IFoiIGZpbGw9IiM2Yzc1N2QiLz48L3N2Zz4=" alt="Auteur du témoignage">
+              <div class="author-info">
+                <h4>Fatouma Ahmed</h4>
+                <p>Responsable Marketing</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="quote-icon">
+              <i class="fas fa-quote-left"></i>
+            </div>
+            <p>"Les analyses du marché de l'emploi djiboutien m'ont aidé à mieux orienter ma recherche et à trouver un poste qui me correspond."</p>
+            <div class="testimonial-author">
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMzAiIGZpbGw9IiNlOWVjZWYiLz48Y2lyY2xlIGN4PSIzMCIgY3k9IjI0IiByPSIxMiIgZmlsbD0iIzZjNzU3ZCIvPjxwYXRoIGQ9Ik0xMiA0OCBDMTIgNDAgMjQgNDAgMzYgNDAgQzQ4IDQwIDYwIDQwIDYwIDQ4IFoiIGZpbGw=" alt="Auteur du témoignage">
+              <div class="author-info">
+                <h4>Kadir Mohamed</h4>
+                <p>Analyste Financier</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Prêt à transformer votre carrière ?</h2>
+        <p>Explorez nos offres d'emploi et postulez dès maintenant</p>
+        <div class="cta-buttons">
+          <a href="offres.html" class="cta-btn primary">Voir les offres</a>
+          <a href="conseil-cv.html" class="cta-btn secondary">Conseils CV</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>Djibouti JOBS</h3>
+        <p>La plateforme de référence pour trouver des emplois et stages à Djibouti.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Liens rapides</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="offres.html">Offres</a></li>
+          <li><a href="postuler.html">Postuler</a></li>
+          <li><a href="apropos.html">À propos</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Ressources</h4>
+        <ul>
+          <li><a href="conseil-cv.html">Conseils de CV</a></li>
+          <li><a href="preparation-entretien.html">Préparation entretien</a></li>
+          <li><a href="blog.html" class="active">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><i class="fas fa-envelope"></i> contact@djiboutijobs.dj</li>
+          <li><i class="fas fa-phone"></i> +253 XX XX XX XX</li>
+          <li><i class="fas fa-map-marker-alt"></i> Djibouti Ville, Djibouti</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Djibouti JOBS. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script src="../Js/blog.js"></script>
+</body>
+</html>

@@ -155,8 +155,10 @@ nav .flag {
 }
 
 .hero-image img {
-  max-width: 100%;
-  border-radius: 12px;
+  width: 80%;
+  max-width: 700px; 
+  height: auto;
+  border-radius: 10px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
@@ -244,9 +246,11 @@ nav .flag {
 }
 
 .mission-image img {
-  max-width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 700px; 
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 /* ===== Our Team ===== */

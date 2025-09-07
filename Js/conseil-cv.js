@@ -1,150 +1,170 @@
-// Animation au défilement
-document.addEventListener('DOMContentLoaded', function() {
-  // Animation des éléments au scroll
-  const animatedElements = document.querySelectorAll('.stat-item, .template-card');
-  
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.animation = 'fadeIn 0.8s forwards';
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.1
-  });
-  
-  animatedElements.forEach(element => {
-    element.style.opacity = '0';
-    observer.observe(element);
-  });
-  
-  // Menu mobile
-  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-  const nav = document.querySelector('nav');
-  
-  mobileMenuBtn.addEventListener('click', function() {
-    nav.classList.toggle('active');
-  });
-  
-  // Fermer le menu en cliquant à l'extérieur
-  document.addEventListener('click', function(event) {
-    if (!event.target.closest('nav') && !event.target.closest('.mobile-menu-btn') && nav.classList.contains('active')) {
-      nav.classList.remove('active');
-    }
-  });
-  
-  // Accordéon des conseils
-  const accordionItems = document.querySelectorAll('.accordion-item');
-  
-  accordionItems.forEach(item => {
-    const header = item.querySelector('.accordion-header');
-    
-    header.addEventListener('click', function() {
-      // Fermer tous les autres items
-      accordionItems.forEach(otherItem => {
-        if (otherItem !== item && otherItem.classList.contains('active')) {
-          otherItem.classList.remove('active');
+// ===== Script principal complet (animations, menu, accordéon, téléchargements, générateur de CV) =====
+document.addEventListener('DOMContentLoaded', function () {
+  // --- Animation au défilement ---
+  const animatedElements = document.querySelectorAll('.stat-item, .template-card, .step, .question-category');
+  if (animatedElements.length) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animation = 'fadeIn 0.8s forwards';
+          observer.unobserve(entry.target);
         }
       });
-      
-      // Basculer l'item actuel
+    }, { threshold: 0.1 });
+
+    animatedElements.forEach(el => {
+      el.style.opacity = '0';
+      observer.observe(el);
+    });
+  }
+
+  // --- Menu mobile ---
+  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+  const nav = document.querySelector('nav');
+  if (mobileMenuBtn && nav) {
+    mobileMenuBtn.addEventListener('click', () => nav.classList.toggle('active'));
+
+    // Fermer le menu en cliquant à l'extérieur
+    document.addEventListener('click', (event) => {
+      if (!event.target.closest('nav') && !event.target.closest('.mobile-menu-btn') && nav.classList.contains('active')) {
+        nav.classList.remove('active');
+      }
+    });
+  }
+
+  // --- Accordéon des conseils ---
+  const accordionItems = document.querySelectorAll('.accordion-item');
+  accordionItems.forEach(item => {
+    const header = item.querySelector('.accordion-header');
+    if (!header) return;
+    header.addEventListener('click', () => {
+      // fermer les autres
+      accordionItems.forEach(other => {
+        if (other !== item && other.classList.contains('active')) other.classList.remove('active');
+      });
       item.classList.toggle('active');
     });
   });
-  
-  // Simulation de téléchargement
+
+  // --- Simulation de téléchargement (exclut le bouton de téléchargement CV) ---
   const downloadButtons = document.querySelectorAll('.download-btn');
-  
   downloadButtons.forEach(button => {
-    button.addEventListener('click', function(e) {
+    // skip the real CV download button so it can perform the real download
+    if (button.id === 'download-cv') return;
+
+    button.addEventListener('click', function (e) {
       e.preventDefault();
-      
-      // Animation de téléchargement
-      const originalText = button.innerHTML;
+      const originalHTML = button.innerHTML;
+      const originalBg = button.style.background;
       button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Téléchargement...';
       button.style.opacity = '0.7';
-      
-      // Simulation du téléchargement
+
       setTimeout(() => {
         button.innerHTML = '<i class="fas fa-check"></i> Téléchargé !';
         button.style.background = 'var(--success)';
-        
-        // Réinitialiser après 2 secondes
         setTimeout(() => {
-          button.innerHTML = originalText;
-          button.style.background = '';
+          button.innerHTML = originalHTML;
+          button.style.background = originalBg || '';
           button.style.opacity = '1';
         }, 2000);
-      }, 1500);
+      }, 1400);
     });
   });
-  
-  // Navigation fluide
+
+  // --- Navigation fluide ---
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
       e.preventDefault();
-      
       const targetId = this.getAttribute('href');
       if (targetId === '#') return;
-      
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        window.scrollTo({
-          top: targetElement.offsetTop - 80,
-          behavior: 'smooth'
-        });
-        
-        // Fermer le menu mobile si ouvert
-        if (nav.classList.contains('active')) {
-          nav.classList.remove('active');
-        }
+      const targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        window.scrollTo({ top: targetEl.offsetTop - 80, behavior: 'smooth' });
+        if (nav && nav.classList.contains('active')) nav.classList.remove('active');
       }
     });
   });
-  
-  // Sauvegarde de la checklist
-  const checkboxes = document.querySelectorAll('.checklist-item input[type="checkbox"]');
-  
-  // Charger l'état sauvegardé
-  checkboxes.forEach(checkbox => {
-    const savedState = localStorage.getItem(checkbox.id);
-    if (savedState === 'true') {
-      checkbox.checked = true;
-    }
-    
-    // Sauvegarder lors du changement
-    checkbox.addEventListener('change', function() {
-      localStorage.setItem(this.id, this.checked);
+
+  // ==========================
+  // Générateur de CV
+  // ==========================
+  const generateBtn = document.getElementById('generate-cv');
+  const cvOutput = document.getElementById('cv-output'); // textarea pour l'aperçu
+  const downloadCvBtn = document.getElementById('download-cv');
+
+  if (generateBtn && cvOutput) {
+    // assure que le bouton ne trigger pas un submit s'il est dans un form
+    try { generateBtn.setAttribute('type', 'button'); } catch (e) { /* ignore */ }
+
+    generateBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      // récupération des champs (IDs matchant ton HTML)
+      const name = (document.getElementById('cv-name')?.value || '').trim();
+      const email = (document.getElementById('cv-email')?.value || '').trim();
+      const phone = (document.getElementById('cv-phone')?.value || '').trim();
+      const address = (document.getElementById('cv-address')?.value || '').trim();
+      const skillsRaw = (document.getElementById('cv-skills')?.value || '').trim();
+      const education = (document.getElementById('cv-education')?.value || '').trim();
+      const experience = (document.getElementById('cv-experience')?.value || '').trim();
+      const languages = (document.getElementById('cv-languages')?.value || '').trim();
+
+      // validation minimale
+      if (!name) {
+        alert("Veuillez entrer votre nom complet.");
+        return;
+      }
+
+      // formater les compétences (une par ligne si séparées par virgule)
+      const skillsList = skillsRaw
+        ? skillsRaw.split(',').map(s => s.trim()).filter(Boolean)
+        : [];
+
+      // construire le contenu du CV (texte simple, adapté à la textarea + téléchargement .txt)
+      let cvText = `Nom complet : ${name}\n`;
+      if (email) cvText += `Email : ${email}\n`;
+      if (phone) cvText += `Téléphone : ${phone}\n`;
+      if (address) cvText += `Adresse : ${address}\n`;
+      cvText += `\n=== Compétences ===\n`;
+      if (skillsList.length) {
+        cvText += skillsList.map(s => `- ${s}`).join('\n') + '\n';
+      } else if (skillsRaw) {
+        cvText += `${skillsRaw}\n`;
+      } else {
+        cvText += `N/A\n`;
+      }
+      cvText += `\n=== Formations ===\n${education || 'N/A'}\n`;
+      cvText += `\n=== Expériences professionnelles ===\n${experience || 'N/A'}\n`;
+      cvText += `\n=== Langues ===\n${languages || 'N/A'}\n`;
+
+      // afficher dans la textarea d'aperçu
+      cvOutput.value = cvText;
+      // placer le focus sur la zone d'aperçu pour que l'utilisateur voie le résultat
+      cvOutput.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
-  });
-  
-  // Bouton pour réinitialiser la checklist
-  const resetButton = document.createElement('button');
-  resetButton.textContent = 'Réinitialiser la checklist';
-  resetButton.style.display = 'block';
-  resetButton.style.margin = '1rem auto 0';
-  resetButton.style.padding = '0.5rem 1rem';
-  resetButton.style.background = 'var(--light-gray)';
-  resetButton.style.border = 'none';
-  resetButton.style.borderRadius = '4px';
-  resetButton.style.cursor = 'pointer';
-  resetButton.style.transition = 'background 0.3s';
-  
-  resetButton.addEventListener('mouseover', function() {
-    this.style.background = '#d1d9e0';
-  });
-  
-  resetButton.addEventListener('mouseout', function() {
-    this.style.background = 'var(--light-gray)';
-  });
-  
-  resetButton.addEventListener('click', function() {
-    checkboxes.forEach(checkbox => {
-      checkbox.checked = false;
-      localStorage.setItem(checkbox.id, 'false');
+  } else {
+    // si on ne trouve pas les éléments, log utile pour debug
+    if (!generateBtn) console.warn("Générateur CV : bouton #generate-cv introuvable.");
+    if (!cvOutput) console.warn("Générateur CV : textarea #cv-output introuvable.");
+  }
+
+  // Téléchargement du CV en .txt (bouton dédié)
+  if (downloadCvBtn && cvOutput) {
+    downloadCvBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      const text = (cvOutput.value || '').trim();
+      if (!text) {
+        alert("Générez d'abord votre CV avant de le télécharger.");
+        return;
+      }
+      const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'mon_cv.txt';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      setTimeout(() => URL.revokeObjectURL(link.href), 1000);
     });
-  });
-  
-  document.querySelector('.checklist').appendChild(resetButton);
+  }
 });
